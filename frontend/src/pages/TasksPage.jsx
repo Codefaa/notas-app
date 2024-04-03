@@ -1,6 +1,9 @@
+import './TasksPage.css';
+
 import { useEffect } from "react";
 import { useTasks } from "../context/tasksContext";
 import { TaskCard } from "../components/tasks/TaskCard";
+import { ButtonLink } from '../components/ui';
 
 export function TasksPage() {
   const { tasks, getTasks } = useTasks();
@@ -12,16 +15,13 @@ export function TasksPage() {
   return (
     <>
       {tasks.length === 0 && (
-        <div>
-          <div>
-            <h1>
-              No tasks yet, please add a new task
-            </h1>
-          </div>
+        <div className='taskpage-vacio'>
+            <h1>Aún no hay tareas, agregue una nueva tarea</h1>
+            <ButtonLink to="/add-task">Agregar nota</ButtonLink>
         </div>
       )}
 
-      <div>
+      <div className="task-contenedor">
         {tasks.map((task) => (
           <TaskCard task={task} key={task._id} />
         ))}

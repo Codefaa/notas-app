@@ -1,0 +1,14 @@
+.boton-estilo {
+    background-color: #121212;
+    text-transform: uppercase;
+    border: 0;
+    border-radius: 5px;
+    padding: .8rem;
+    cursor: pointer;
+
+    transition: .3s all;
+}
+
+.boton-estilo:hover {
+    background-color: #1212125e;
+}

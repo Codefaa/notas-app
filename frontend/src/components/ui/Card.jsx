@@ -1,4 +1,6 @@
+import './Card.css';
+
 export function Card({ children }) {
-    return <div>{children}</div>;
+    return <div className="card-contenedor">{children}</div>;
   }
   

@@ -1,3 +1,5 @@
+import './LoginPage.css';
+
 import { useAuth } from "../context/authContext";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -26,29 +28,29 @@ export function LoginPage() {
   }, [isAuthenticated]);
 
   return (
-    <div>
+    <div className='login-contenedor'>
       <Card>
         {loginErrors.map((error, i) => (
           <Message message={error} key={i} />
         ))}
-        <h1>Login</h1>
+        <h1>Iniciar Sesión</h1>
 
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form className='login-form' onSubmit={handleSubmit(onSubmit)}>
           <Label htmlFor="email">Email:</Label>
           <Input
             label="Write your email"
             type="email"
             name="email"
-            placeholder="youremail@domain.tld"
+            placeholder="Correo electronico"
             {...register("email", { required: true })}
           />
           <p>{errors.email?.message}</p>
 
-          <Label htmlFor="password">Password:</Label>
+          <Label htmlFor="password">Contraseña:</Label>
           <Input
             type="password"
             name="password"
-            placeholder="Write your password"
+            placeholder="Contraseña"
             {...register("password", { required: true, minLength: 6 })}
           />
           <p>{errors.password?.message}</p>
@@ -56,9 +58,7 @@ export function LoginPage() {
           <Button>Login</Button>
         </form>
 
-        <p>
-          Don't have an account? <Link to="/register">Sign up</Link>
-        </p>
+        <p>¿No tienes una cuenta? <Link to="/register">Crear cuenta</Link></p>
       </Card>
     </div>
   );

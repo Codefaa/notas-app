@@ -1,3 +1,5 @@
+import './RegisterPage.css';
+
 import { useEffect } from "react";
 import { useAuth } from "../context/authContext";
 import { Link, useNavigate } from "react-router-dom";
@@ -26,18 +28,18 @@ function Register() {
   }, [isAuthenticated]);
 
   return (
-    <div>
+    <div className='register-contenedor'>
       <Card>
         {registerErrors.map((error, i) => (
           <Message message={error} key={i} />
         ))}
-        <h1>Register</h1>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <Label htmlFor="username">Username:</Label>
+        <h1 className='register-titulo'>Crear cuenta gratuita</h1>
+        <form className='register-form' onSubmit={handleSubmit(onSubmit)}>
+          <Label htmlFor="username">Usuario:</Label>
           <Input
             type="text"
             name="username"
-            placeholder="Write your name"
+            placeholder="Usuario"
             {...register("username")}
             autoFocus
           />
@@ -48,42 +50,37 @@ function Register() {
           <Label htmlFor="email">Email:</Label>
           <Input
             name="email"
-            placeholder="youremail@domain.tld"
+            placeholder="Correo electronico"
             {...register("email")}
           />
           {errors.email?.message && (
             <p>{errors.email?.message}</p>
           )}
 
-          <Label htmlFor="password">Password:</Label>
+          <Label htmlFor="password">Contraseña:</Label>
           <Input
             type="password"
             name="password"
-            placeholder="********"
+            placeholder="Contraseña"
             {...register("password")}
           />
           {errors.password?.message && (
             <p>{errors.password?.message}</p>
           )}
 
-          <Label htmlFor="confirmPassword">Confirm Password:</Label>
+          <Label htmlFor="confirmPassword">Confirmar la contraseña:</Label>
           <Input
             type="password"
             name="confirmPassword"
-            placeholder="********"
+            placeholder=" Confirmar la contraseña"
             {...register("confirmPassword")}
           />
           {errors.confirmPassword?.message && (
             <p>{errors.confirmPassword?.message}</p>
           )}
-          <Button>Submit</Button>
+          <Button>Regístrate</Button>
         </form>
-        <p>
-          Already Have an Account?
-          <Link to="/login">
-            Login
-          </Link>
-        </p>
+        <p>¿Ya tienes una cuenta? <Link to="/login">Iniciar sesión</Link></p>
       </Card>
     </div>
   );

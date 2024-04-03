@@ -49,7 +49,7 @@ export function TaskProvider({ children }) {
       console.error(error);
     }
   };
-
+  
   const updateTask = async (id, task) => {
     try {
       await updateTaskRequest(id, task);

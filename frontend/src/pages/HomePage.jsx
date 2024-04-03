@@ -1,19 +1,20 @@
 import { Link } from "react-router-dom";
+import nota from '../images/nota.png'
+import './HomePage.css';
 
 function HomePage() {
   return (
-  <section>
-    <header>
-      <h1>React Tasks</h1>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos
-        fugit doloremque molestias recusandae labore repellat amet dicta tempore
-        necessitatibus facilis repellendus voluptas ducimus maiores deserunt sed
-        quo ratione provident debitis aut, voluptatem aliquam iste blanditiis
-        ex? Voluptatibus, fuga quasi necessitatibus cumque optio error enim,
-        officia accusantium vitae doloremque, molestias modi.
-      </p>
-      <Link to="/register">Get Started</Link>
+  <section className="home-seccion">
+    <header className="home-header">
+      <h1 className="home-titulo">Notas Ya</h1>
+      <p className="home-parrafo">Tu lugar para tomar notas rápidas y organizar tus ideas de manera eficiente. ¡Escribe, guarda y accede a tus notas fácilmente en cualquier momento!</p>
+      <div className="home-links">
+        <Link to="/register" className="home-registrar">Regístrate gratis</Link>
+        <Link to="/login" className="home-iniciar">¿Ya tienes una cuenta? Inicia sesión.</Link>
+      </div>
+      <figure className="home-figure">
+        <img src={nota} alt="" className="home-imagen"/>
+      </figure>
     </header>
   </section>
   );

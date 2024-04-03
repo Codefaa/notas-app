@@ -6,6 +6,8 @@ import { Button, Card, Input, Label } from "../components/ui";
 import { useTasks } from "../context/tasksContext";
 import { Textarea } from "../components/ui/Textarea";
 import { useForm } from "react-hook-form";
+import './TaskFormPage.css';
+
 dayjs.extend(utc);
 
 export function TaskFormPage() {
@@ -58,31 +60,31 @@ export function TaskFormPage() {
 
   return (
     <Card>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Label htmlFor="title">Title</Label>
+      <form className="taskform-form" onSubmit={handleSubmit(onSubmit)}>
+        <Label htmlFor="title">Título</Label>
         <Input
           type="text"
           name="title"
-          placeholder="Title"
+          placeholder="Título"
           {...register("title")}
           autoFocus
         />
         {errors.title && (
-          <p>Please enter a title.</p>
+          <p>Por favor introduce un título.</p>
         )}
 
-        <Label htmlFor="description">Description</Label>
+        <Label htmlFor="description">Descripción</Label>
         <Textarea
           name="description"
           id="description"
           rows="3"
-          placeholder="Description"
+          placeholder="Descripción"
           {...register("description")}
         ></Textarea>
 
-        <Label htmlFor="date">Date</Label>
+        <Label htmlFor="date">Fecha</Label>
         <Input type="date" name="date" {...register("date")} />
-        <Button>Save</Button>
+        <Button color='#5195FF'>Guardar</Button>
       </form>
     </Card>
   );

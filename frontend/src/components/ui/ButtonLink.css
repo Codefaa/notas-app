@@ -1,0 +1,14 @@
+.boton-link {
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-weight: bold;
+    color: #5195FF;
+
+    transition: .3s all;
+}
+
+.boton-link:hover {
+    color: #4189fd;
+}   

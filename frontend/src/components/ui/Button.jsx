@@ -1,8 +1,8 @@
-export function Button({ onClick, children }) {
+import './Button.css';
+
+export function Button({ onClick, children, color }) {
     return (
-      <button
-        onClick={onClick}
-      >
+      <button className='boton-estilo' onClick={onClick} style={{color: color}}>
         {children}
       </button>
     );

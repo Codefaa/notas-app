@@ -1,0 +1,15 @@
+.register-contenedor {
+    display: flex;
+    justify-content: center;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 320px;
+}
+
+.register-titulo {
+    font-size: 1.8rem;
+}
