@@ -1,7 +1,11 @@
-import axios from "./axios";
+import axios from "axios";
 
-export const registerRequest = async (user) => axios.post(`/auth/register`, user);
+const URL = process.env.REACT_APP_API_URL || "http://localhost:4000/api";
 
-export const loginRequest = async (user) => axios.post(`/auth/login`, user);
+const API = `${URL}`;
 
-export const verifyTokenRequest = async () => axios.get(`/auth/verify`);
+export const registerRequest = async (user) => axios.post(`${API}/auth/register`, user);
+
+export const loginRequest = async (user) => axios.post(`${API}/auth/login`, user);
+
+export const verifyTokenRequest = async () => axios.get(`${API}/auth/verify`);
