@@ -1,1 +1,1 @@
-export const REACT_APP_API_URL = "http://localhost:4000/api";
+export const API_URL = process || "http://localhost:4000/api";
