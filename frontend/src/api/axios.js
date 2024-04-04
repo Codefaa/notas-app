@@ -1,10 +1,11 @@
 import axios from "axios";
-
-const URL = process.env.REACT_APP_API_URL || "http://localhost:4000/api"
+import { REACT_APP_API_URL } from "../config.js";
 
 const instance = axios.create({
-  baseURL: URL,
+  baseURL: REACT_APP_API_URL,
   withCredentials: true,
 });
+
+console.log('backend: ', REACT_APP_API_URL);
 
 export default instance;

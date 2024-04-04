@@ -44,6 +44,9 @@ export const register = async (req, res) => {
       username: userSaved.username,
       email: userSaved.email,
     });
+    
+    console.log(res.json); //acaca
+
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
