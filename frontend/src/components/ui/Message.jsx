@@ -1,6 +1,8 @@
+import './Message.css';
+
 export function Message({ message }) {
     return (
-      <p>
+      <p className='parrafo-mensaje'>
         {message}
       </p>
     );

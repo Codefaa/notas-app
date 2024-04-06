@@ -1,0 +1,7 @@
+.parrafo-mensaje {
+    line-height: 1.25rem; 
+    background-color: #f56565; 
+    padding: .5rem 1rem; 
+    border-radius: 5px; 
+    margin-bottom: 0.25rem; 
+}

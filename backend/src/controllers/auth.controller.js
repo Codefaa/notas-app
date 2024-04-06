@@ -12,7 +12,7 @@ export const register = async (req, res) => {
 
     if (userFound)
       return res.status(400).json({
-        message: ["The email is already in use"],
+        message: ["El correo electrónico ya está en uso."],
       });
 
     // hashing the password
@@ -59,13 +59,13 @@ export const login = async (req, res) => {
 
     if (!userFound)
       return res.status(400).json({
-        message: ["The email does not exist"],
+        message: ["El email no existe"],
       });
 
     const isMatch = await bcrypt.compare(password, userFound.password);
     if (!isMatch) {
       return res.status(400).json({
-        message: ["The password is incorrect"],
+        message: ["La contraseña es incorrecta"],
       });
     }
 
