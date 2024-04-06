@@ -1,9 +1,16 @@
+import './TaskCard.css';
 import { useTasks } from "../../context/tasksContext";
 import { Button, ButtonLink, Card } from "../ui";
-import './TaskCard.css';
+import { ToastContainer } from 'react-toastify';
+import { mensaje } from '../../function/mensajeToastify';
 
 export function TaskCard({ task }) {
   const { deleteTask } = useTasks();
+
+  function handleDeleteClick() {
+    mensaje('❌ Nota eliminada');
+    deleteTask(task._id);
+  }
 
   return (
     <Card>
@@ -23,7 +30,8 @@ export function TaskCard({ task }) {
           })}
       </p>
       <div className="taskcard-crud">
-        <Button onClick={() => deleteTask(task._id)} color='red'>Eliminar</Button>
+        <Button onClick={handleDeleteClick} color='red'>Eliminar</Button>
+        <ToastContainer/>  
         <ButtonLink to={`/tasks/${task._id}`}><Button color='#5195FF'>Editar</Button></ButtonLink>
       </div>
     </Card>

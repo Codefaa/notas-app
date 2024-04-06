@@ -1,25 +1,22 @@
+import './TaskFormPage.css';
 import { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import { Button, Card, Input, Label } from "../components/ui";
 import { useTasks } from "../context/tasksContext";
 import { Textarea } from "../components/ui/Textarea";
 import { useForm } from "react-hook-form";
-import './TaskFormPage.css';
-
+import { ToastContainer } from 'react-toastify';
+import { mensaje } from '../function/mensajeToastify';
 dayjs.extend(utc);
+
 
 export function TaskFormPage() {
   const { createTask, getTask, updateTask } = useTasks();
   const navigate = useNavigate();
   const params = useParams();
-  const {
-    register,
-    setValue,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, setValue, handleSubmit, formState: { errors }, } = useForm();
 
   const onSubmit = async (data) => {
     try {
@@ -41,6 +38,8 @@ export function TaskFormPage() {
       // window.location.href = "/";
     }
   };
+
+
 
   useEffect(() => {
     const loadTask = async () => {
@@ -84,7 +83,8 @@ export function TaskFormPage() {
 
         <Label htmlFor="date">Fecha</Label>
         <Input type="date" name="date" {...register("date")} />
-        <Button color='#5195FF'>Guardar</Button>
+        <Button onClick={() => mensaje('✍ Nota agregada')} color='#5195FF'>Guardar</Button>
+        <Link to='/tasks'><ToastContainer /></Link>
       </form>
     </Card>
   );

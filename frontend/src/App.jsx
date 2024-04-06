@@ -17,7 +17,6 @@ function App() {
       <AuthProvider>
         <TaskProvider>
           <BrowserRouter>
-
             <Navbar />
             <main className='main-contenedor'>
               <Routes>
