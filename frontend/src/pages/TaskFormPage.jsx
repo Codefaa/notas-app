@@ -1,6 +1,6 @@
 import './TaskFormPage.css';
 import { useEffect } from "react";
-import { useNavigate, useParams, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import { Button, Card, Input, Label } from "../components/ui";
@@ -14,10 +14,9 @@ dayjs.extend(utc);
 
 export function TaskFormPage() {
   const { createTask, getTask, updateTask } = useTasks();
-  const navigate = useNavigate();
   const params = useParams();
   const { register, setValue, handleSubmit, formState: { errors }, } = useForm();
-
+ 
   const onSubmit = async (data) => {
     try {
       if (params.id) {
@@ -38,8 +37,6 @@ export function TaskFormPage() {
       // window.location.href = "/";
     }
   };
-
-
 
   useEffect(() => {
     const loadTask = async () => {
